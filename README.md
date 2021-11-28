@@ -10,5 +10,5 @@
 
 TODO:
 
-- [ ] First thing is to come up with some kind of design
+- [x] First thing is to come up with some kind of design
 - [ ]

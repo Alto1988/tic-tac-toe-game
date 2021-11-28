@@ -10,10 +10,16 @@
   <body>
     <h1>Tic-Tac-Toe</h1>
     <div class="player-container">
-      <h4 class="player-one">Player one</h4>
+      <div class="score-container">
+        <h4 class="player-one">Player one</h4>
+        <p id="player-one-score"></p>
+      </div>
       <button class="start-button">Start game</button>
       <button class="reset-button">Reset Game</button>
-      <h4 class="player-two">Player two</h4>
+      <div class="score-container">
+        <h4 class="player-two">Player two</h4>
+        <p id="player-two-score"></p>
+      </div>
     </div>
     <div class="game-board">
       <div class="box"></div>
@@ -25,6 +31,9 @@
       <div class="box"></div>
       <div class="box"></div>
       <div class="box"></div>
+    </div>
+    <div>
+      <button id="increase-test">Click Me to increase score</button>
     </div>
     <script src="./main.js"></script>
   </body>

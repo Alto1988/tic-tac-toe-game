@@ -26,9 +26,24 @@ playerOneScore.innerText = gameState.playerOne.wins;
 playerTwoScore.innerText = gameState.playerTwo.wins;
 
 //END OF SETUP
-
+function resetGameBoard() {
+  if (gameState.gameIsStarted === false) {
+    return;
+  }
+  for (let i = 0; i < gameBoard.children.length; i++) {
+    gameBoard.children[i].innerText = "";
+  }
+  gameState.playerTurn = 1;
+}
+function resetGameScoresAndBoard() {
+  gameState.playerOne.wins = 0;
+  gameState.playerTwo.wins = 0;
+  playerOneScore.innerText = gameState.playerOne.wins;
+  playerTwoScore.innerText = gameState.playerTwo.wins;
+  resetGameBoard();
+}
 //Testing players scores
-const increaseButton = document.querySelector("#increase-test");
+// const increaseButton = document.querySelector("#increase-test");
 
 // increaseButton.addEventListener("click", () => {
 //   gameState.playerOne.wins++;
@@ -45,7 +60,7 @@ startGameButton.addEventListener("click", () => {
 });
 
 //Resetting the game
-resetGameButton.addEventListener("click", resetGameBoard);
+resetGameButton.addEventListener("click", resetGameScoresAndBoard);
 
 console.log(startGameButton);
 
@@ -73,9 +88,13 @@ for (let i = 0; i < 9; i++) {
     if (checkForWin()) {
       if (gameState.playerTurn === 2) {
         alert("Player " + (gameState.playerTurn - 1) + " wins!");
+        gameState.playerOne.wins++;
+        playerOneScore.innerText = gameState.playerOne.wins;
         resetGameBoard();
       } else {
         alert("Player " + (gameState.playerTurn + 1) + " wins!");
+        gameState.playerTwo.wins++;
+        playerTwoScore.innerText = gameState.playerTwo.wins;
         resetGameBoard();
       }
     }
@@ -125,14 +144,4 @@ function checkForWin() {
     return true;
   }
   return false;
-}
-
-function resetGameBoard() {
-  if (gameState.gameIsStarted === false) {
-    return;
-  }
-  for (let i = 0; i < gameBoard.children.length; i++) {
-    gameBoard.children[i].innerText = "";
-  }
-  gameState.playerTurn = 1;
 }

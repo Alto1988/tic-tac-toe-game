@@ -1,6 +1,6 @@
 body {
   /* border: 1px solid purple; */
-  background-color: #f5f5f5;
+  background-color: beige;
   justify-content: center;
 }
 h1 {
@@ -17,16 +17,16 @@ h1 {
   width: 400px;
   height: 400px;
   display: grid;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
 .box {
   border: 1px solid black;
-  border-radius: 2px;
   font-family: helvetica;
   font-weight: bold;
   font-size: 4em;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,5 +62,13 @@ h1 {
 
 .score-container {
   padding: 0 auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+}
+
+.start-button:hover {
+  background-color: purple;
+}
+
+.reset-button:hover {
+  background-color: purple;
 }

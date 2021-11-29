@@ -11,4 +11,5 @@
 TODO:
 
 - [x] First thing is to come up with some kind of design
-- [ ]
+- [ ] Finish the initial game logic
+- [ ] Finisht the game :)

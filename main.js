@@ -26,6 +26,8 @@ playerOneScore.innerText = gameState.playerOne.wins;
 playerTwoScore.innerText = gameState.playerTwo.wins;
 
 //END OF SETUP
+
+//Start of callbacks
 function resetGameBoard() {
   if (gameState.gameIsStarted === false) {
     return;
@@ -42,14 +44,7 @@ function resetGameScoresAndBoard() {
   playerTwoScore.innerText = gameState.playerTwo.wins;
   resetGameBoard();
 }
-//Testing players scores
-// const increaseButton = document.querySelector("#increase-test");
-
-// increaseButton.addEventListener("click", () => {
-//   gameState.playerOne.wins++;
-//   playerOneScore.innerText = gameState.playerOne.wins;
-//   game.gameState.gameIsStarted = false;
-// });
+//End of callbacks
 
 //Starting the game
 startGameButton.addEventListener("click", () => {
@@ -69,6 +64,7 @@ for (let i = 0; i < 9; i++) {
   const box = document.createElement("div");
   box.classList.add("box");
   box.setAttribute("id", i);
+  //Event listener for each box
   box.addEventListener("click", () => {
     if (gameState.gameIsStarted === false) {
       return;
@@ -97,6 +93,12 @@ for (let i = 0; i < 9; i++) {
         playerTwoScore.innerText = gameState.playerTwo.wins;
         resetGameBoard();
       }
+    } else if (
+      checkForWin() === false &&
+      checkIfEntireBoardIsFilled() === true
+    ) {
+      alert("Tie!");
+      resetGameBoard();
     }
   });
   gameBoard.appendChild(box);
@@ -105,6 +107,8 @@ for (let i = 0; i < 9; i++) {
 /**
   Have an array with all possible solutions
 */
+
+//Check for the win conditions still need to figure out the logic for ties
 function checkForWin() {
   //check for horizontal win
   for (let i = 0; i < 3; i++) {
@@ -144,4 +148,13 @@ function checkForWin() {
     return true;
   }
   return false;
+}
+
+function checkIfEntireBoardIsFilled() {
+  for (let i = 0; i < 9; i++) {
+    if (gameBoard.children[i].innerText === "") {
+      return false;
+    }
+  }
+  return true;
 }

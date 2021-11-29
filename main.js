@@ -7,7 +7,6 @@ console.log("You're in....");
 
 let gameState = {
   gameIsStarted: false,
-  playerTurn: 1,
   playerOne: {
     wins: 0,
   },
@@ -23,7 +22,6 @@ const resetGameButton = document.querySelector(".reset-button");
 
 const playerOneScore = document.querySelector("#player-one-score");
 const playerTwoScore = document.querySelector("#player-two-score");
-const gameBoard = document.querySelector(".game-board");
 
 playerOneScore.innerText = gameState.playerOne.wins;
 playerTwoScore.innerText = gameState.playerTwo.wins;
@@ -55,32 +53,8 @@ resetGameButton.addEventListener("click", () => {
     return;
   }
   gameState.gameIsStarted = false;
-  for (let i = 0; i < gameBoard.children.length; i++) {
-    gameBoard.children[i].innerText = "";
-  }
   console.log(gameState);
   console.log("Game is reset");
 });
 
-//EVENT LOOP FOR GAME BOARD
-for (let i = 0; i < 9; i++) {
-  const box = document.createElement("div");
-  box.classList.add("box");
-  box.setAttribute("id", i);
-  box.addEventListener("click", () => {
-    if (gameState.gameIsStarted === false) {
-      return;
-    }
-    if (gameState.playerTurn === 1 && gameBoard.children[i].innerText === "") {
-      box.innerText = "X";
-      gameState.playerTurn = 2;
-    } else if (
-      gameState.playerTurn === 2 &&
-      gameBoard.children[i].innerText === ""
-    ) {
-      box.innerText = "O";
-      gameState.playerTurn = 1;
-    }
-  });
-  gameBoard.appendChild(box);
-}
+console.log(startGameButton);

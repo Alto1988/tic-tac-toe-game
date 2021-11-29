@@ -85,7 +85,6 @@ for (let i = 0; i < 9; i++) {
     console.log(gameState.playerTurn);
     if (checkForWin()) {
       if (gameState.playerTurn === 2) {
-        alert("Player " + (gameState.playerTurn - 1) + " wins!");
         const winnerElement = document.createElement("h3");
         // winnerElement.innerText =
         //   "Player " + (gameState.playerTurn - 1) + " wins!";
@@ -95,9 +94,7 @@ for (let i = 0; i < 9; i++) {
 
         gameState.playerOne.wins++;
         playerOneScore.innerText = gameState.playerOne.wins;
-        resetGameBoard();
       } else {
-        alert("Player " + (gameState.playerTurn + 1) + " wins!");
         const winnerElement = document.createElement("h3");
         // winnerElement.innerText =
         //   "Player " + (gameState.playerTurn + 1) + " wins!";
@@ -106,14 +103,12 @@ for (let i = 0; i < 9; i++) {
         gameResult.appendChild(winnerElement);
         gameState.playerTwo.wins++;
         playerTwoScore.innerText = gameState.playerTwo.wins;
-        resetGameBoard();
       }
     } else if (
       checkForWin() === false &&
       checkIfEntireBoardIsFilled() === true
     ) {
       alert("Tie!");
-      resetGameBoard();
     }
   });
   gameBoard.appendChild(box);

@@ -30,9 +30,9 @@ playerTwoScore.innerText = gameState.playerTwo.wins;
 
 //Start of callbacks
 function resetGameBoard() {
-  if (gameState.gameIsStarted === false) {
-    return;
-  }
+  // if (gameState.gameIsStarted === false) {
+  //   return;
+  // }
   for (let i = 0; i < gameBoard.children.length; i++) {
     gameBoard.children[i].innerText = "";
   }
@@ -54,12 +54,11 @@ startGameButton.addEventListener("click", () => {
     return;
   }
   gameState.gameIsStarted = true;
+  resetGameBoard();
 });
 
 //Resetting the game
 resetGameButton.addEventListener("click", resetGameScoresAndBoard);
-
-console.log(startGameButton);
 
 //EVENT LOOP FOR GAME BOARD
 for (let i = 0; i < 9; i++) {
@@ -70,6 +69,9 @@ for (let i = 0; i < 9; i++) {
   box.addEventListener("click", () => {
     if (gameState.gameIsStarted === false) {
       return;
+    }
+    if (checkIfEntireBoardIsFilled()) {
+      resetGameBoard();
     }
     //INSIDE HERE WE NEED TO DO A CHECK OF THE BOARD STATE
     if (gameState.playerTurn === 1 && gameBoard.children[i].innerText === "") {
@@ -86,37 +88,30 @@ for (let i = 0; i < 9; i++) {
     if (checkForWin()) {
       if (gameState.playerTurn === 2) {
         const winnerElement = document.createElement("h3");
-        // winnerElement.innerText =
-        //   "Player " + (gameState.playerTurn - 1) + " wins!";
         winnerElement.innerHTML = `Player ${gameState.playerTurn - 1} wins \n`;
-        // console.log(winnerElement);
         gameResult.appendChild(winnerElement);
 
         gameState.playerOne.wins++;
         playerOneScore.innerText = gameState.playerOne.wins;
+        gameState.gameIsStarted = false;
       } else {
         const winnerElement = document.createElement("h3");
-        // winnerElement.innerText =
-        //   "Player " + (gameState.playerTurn + 1) + " wins!";
         winnerElement.innerHTML = `Player ${gameState.playerTurn + 1} wins \n`;
-        // console.log(winnerElement);
         gameResult.appendChild(winnerElement);
         gameState.playerTwo.wins++;
         playerTwoScore.innerText = gameState.playerTwo.wins;
+        gameState.gameIsStarted = false;
       }
     } else if (
       checkForWin() === false &&
       checkIfEntireBoardIsFilled() === true
     ) {
       alert("Tie!");
+      resetGameBoard();
     }
   });
   gameBoard.appendChild(box);
 }
-
-/**
-  Have an array with all possible solutions
-*/
 
 //Check for the win conditions still need to figure out the logic for ties
 function checkForWin() {

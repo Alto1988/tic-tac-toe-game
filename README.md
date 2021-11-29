@@ -12,6 +12,6 @@ TODO:
 
 - [x] First thing is to come up with some kind of design
 - [x] Finish the initial game logic
-- [ ] Finish the design of the game
-- [ ]
+- [x] Finish the design of the game
+- [ ] Highlight the path of the winning squares
 - [ ] Finisht the game :)

@@ -45,17 +45,7 @@ startGameButton.addEventListener("click", () => {
 });
 
 //Resetting the game
-resetGameButton.addEventListener("click", () => {
-  if (gameState.gameIsStarted === false) {
-    return;
-  }
-  for (let i = 0; i < gameBoard.children.length; i++) {
-    gameBoard.children[i].innerText = "";
-  }
-  gameState.playerTurn = 1;
-  //NOT SURE IF I SHOULFD KEEP THE GAME STATE TRUE AFTER INITIAL START
-  // gameState.gameIsStarted = false;
-});
+resetGameButton.addEventListener("click", resetGameBoard);
 
 console.log(startGameButton);
 
@@ -83,9 +73,11 @@ for (let i = 0; i < 9; i++) {
     if (checkForWin()) {
       if (gameState.playerTurn === 2) {
         alert("Player " + (gameState.playerTurn - 1) + " wins!");
-        return;
+        resetGameBoard();
+      } else {
+        alert("Player " + (gameState.playerTurn + 1) + " wins!");
+        resetGameBoard();
       }
-      alert("Player " + (gameState.playerTurn + 1) + " wins!");
     }
   });
   gameBoard.appendChild(box);
@@ -133,4 +125,14 @@ function checkForWin() {
     return true;
   }
   return false;
+}
+
+function resetGameBoard() {
+  if (gameState.gameIsStarted === false) {
+    return;
+  }
+  for (let i = 0; i < gameBoard.children.length; i++) {
+    gameBoard.children[i].innerText = "";
+  }
+  gameState.playerTurn = 1;
 }

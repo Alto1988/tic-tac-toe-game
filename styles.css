@@ -24,7 +24,7 @@ h1 {
 .box {
   border: 1px solid black;
   font-family: helvetica;
-  font-weight: bold;
+  font-weight: bold italic;
   font-size: 4em;
   border-radius: 2px;
   display: flex;
@@ -39,6 +39,7 @@ h1 {
   height: 100px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .start-button {
@@ -62,7 +63,26 @@ h1 {
 
 .score-container {
   padding: 0 auto;
-  /* border: 1px solid black; */
+  justify-content: center;
+}
+
+#player-one-score {
+  display: flex;
+  justify-content: center;
+}
+
+#player-two-score {
+  display: flex;
+  justify-content: center;
+}
+
+#game-result-container {
+  font-weight: bold italic;
+  justify-content: left;
+}
+
+#game-result-container h3 {
+  font-style: italic;
 }
 
 .start-button:hover {

@@ -22,6 +22,7 @@ const resetGameButton = document.querySelector(".reset-button");
 const playerOneScore = document.querySelector("#player-one-score");
 const playerTwoScore = document.querySelector("#player-two-score");
 const gameBoard = document.querySelector(".game-board");
+const gameResult = document.querySelector("#game-result-container");
 playerOneScore.innerText = gameState.playerOne.wins;
 playerTwoScore.innerText = gameState.playerTwo.wins;
 
@@ -42,6 +43,7 @@ function resetGameScoresAndBoard() {
   gameState.playerTwo.wins = 0;
   playerOneScore.innerText = gameState.playerOne.wins;
   playerTwoScore.innerText = gameState.playerTwo.wins;
+  gameResult.innerText = "Previous Winners:";
   resetGameBoard();
 }
 //End of callbacks
@@ -84,11 +86,24 @@ for (let i = 0; i < 9; i++) {
     if (checkForWin()) {
       if (gameState.playerTurn === 2) {
         alert("Player " + (gameState.playerTurn - 1) + " wins!");
+        const winnerElement = document.createElement("h3");
+        // winnerElement.innerText =
+        //   "Player " + (gameState.playerTurn - 1) + " wins!";
+        winnerElement.innerHTML = `Player ${gameState.playerTurn - 1} wins \n`;
+        // console.log(winnerElement);
+        gameResult.appendChild(winnerElement);
+
         gameState.playerOne.wins++;
         playerOneScore.innerText = gameState.playerOne.wins;
         resetGameBoard();
       } else {
         alert("Player " + (gameState.playerTurn + 1) + " wins!");
+        const winnerElement = document.createElement("h3");
+        // winnerElement.innerText =
+        //   "Player " + (gameState.playerTurn + 1) + " wins!";
+        winnerElement.innerHTML = `Player ${gameState.playerTurn + 1} wins \n`;
+        // console.log(winnerElement);
+        gameResult.appendChild(winnerElement);
         gameState.playerTwo.wins++;
         playerTwoScore.innerText = gameState.playerTwo.wins;
         resetGameBoard();

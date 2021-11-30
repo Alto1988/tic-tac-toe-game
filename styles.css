@@ -85,6 +85,17 @@ h1 {
   font-style: italic;
 }
 
+.winner {
+  background-color: rgb(42, 29, 114);
+  border: 1px solid black;
+  font-size: 4em;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .start-button:hover {
   background-color: purple;
 }

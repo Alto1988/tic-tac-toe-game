@@ -13,5 +13,13 @@ TODO:
 - [x] First thing is to come up with some kind of design
 - [x] Finish the initial game logic
 - [x] Finish the design of the game
-- [ ] Highlight the path of the winning squares
-- [ ] Finisht the game :)
+- [x] Highlight the path of the winning squares
+- [x] Finisht the game logic
+
+# How to play
+
+- The game is played on a 3x3 grid.
+- To start the game press start game button.
+- First player to match three in a row wins the game.
+- Press start game again after the game is over to start a new game.
+- To start match over mid game press reset button or if you want to play another person.

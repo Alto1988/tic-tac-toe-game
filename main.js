@@ -35,6 +35,7 @@ function resetGameBoard() {
   // }
   for (let i = 0; i < gameBoard.children.length; i++) {
     gameBoard.children[i].innerText = "";
+    gameBoard.children[i].className = "box";
   }
   gameState.playerTurn = 1;
 }
@@ -124,6 +125,9 @@ function checkForWin() {
         gameBoard.children[i * 3 + 2].innerText &&
       gameBoard.children[i * 3].innerText !== ""
     ) {
+      gameBoard.children[i * 3].className = "winner";
+      gameBoard.children[i * 3 + 1].className = "winner";
+      gameBoard.children[i * 3 + 2].className = "winner";
       return true;
     }
   }
@@ -134,6 +138,9 @@ function checkForWin() {
       gameBoard.children[i].innerText === gameBoard.children[i + 6].innerText &&
       gameBoard.children[i].innerText !== ""
     ) {
+      gameBoard.children[i].className = "winner";
+      gameBoard.children[i + 3].className = "winner";
+      gameBoard.children[i + 6].className = "winner";
       return true;
     }
   }
@@ -143,6 +150,19 @@ function checkForWin() {
     gameBoard.children[0].innerText === gameBoard.children[8].innerText &&
     gameBoard.children[0].innerText !== ""
   ) {
+    gameBoard.children[0].className = "winner";
+    gameBoard.children[4].className = "winner";
+    gameBoard.children[8].className = "winner";
+    return true;
+  }
+  if (
+    gameBoard.children[2].innerText === gameBoard.children[4].innerText &&
+    gameBoard.children[2].innerText === gameBoard.children[6].innerText &&
+    gameBoard.children[2].innerText !== ""
+  ) {
+    gameBoard.children[2].className = "winner";
+    gameBoard.children[4].className = "winner";
+    gameBoard.children[6].className = "winner";
     return true;
   }
   if (

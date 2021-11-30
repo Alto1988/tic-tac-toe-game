@@ -1,7 +1,7 @@
 body {
   /* border: 1px solid purple; */
-  background-color: beige;
   justify-content: center;
+  background-color: whitesmoke;
 }
 h1 {
   /* border: 1px solid red; */
@@ -33,7 +33,7 @@ h1 {
 }
 
 .player-container {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   background-color: lightblue;
   width: 100%;
   height: 100px;
@@ -102,4 +102,8 @@ h1 {
 
 .reset-button:hover {
   background-color: purple;
+}
+
+.score-container input {
+  width: 50px;
 }

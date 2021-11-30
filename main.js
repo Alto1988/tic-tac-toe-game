@@ -1,8 +1,3 @@
-/**
- * TODO: 
-    - add a switcher for the players => this makes no sense but its whatever
- */
-
 let gameState = {
   gameIsStarted: false,
   playerTurn: 1,
@@ -23,6 +18,8 @@ const playerOneScore = document.querySelector("#player-one-score");
 const playerTwoScore = document.querySelector("#player-two-score");
 const gameBoard = document.querySelector(".game-board");
 const gameResult = document.querySelector("#game-result-container");
+const playerOneInput = document.querySelector('input[name="player-one"]');
+const playerTwoInput = document.querySelector('input[name="player-two"]');
 playerOneScore.innerText = gameState.playerOne.wins;
 playerTwoScore.innerText = gameState.playerTwo.wins;
 
@@ -44,6 +41,8 @@ function resetGameScoresAndBoard() {
   gameState.playerTwo.wins = 0;
   playerOneScore.innerText = gameState.playerOne.wins;
   playerTwoScore.innerText = gameState.playerTwo.wins;
+  playerOneInput.value = "";
+  playerTwoInput.value = "";
   gameResult.innerText = "Previous Winners:";
   resetGameBoard();
 }
@@ -76,13 +75,13 @@ for (let i = 0; i < 9; i++) {
     }
     //INSIDE HERE WE NEED TO DO A CHECK OF THE BOARD STATE
     if (gameState.playerTurn === 1 && gameBoard.children[i].innerText === "") {
-      box.innerText = "X";
+      box.innerText = playerOneInput.value ? playerOneInput.value : "X";
       gameState.playerTurn = 2;
     } else if (
       gameState.playerTurn === 2 &&
       gameBoard.children[i].innerText === ""
     ) {
-      box.innerText = "O";
+      box.innerText = playerTwoInput.value ? playerTwoInput.value : "O";
       gameState.playerTurn = 1;
     }
     console.log(gameState.playerTurn);
@@ -108,6 +107,9 @@ for (let i = 0; i < 9; i++) {
       checkIfEntireBoardIsFilled() === true
     ) {
       alert("Tie!");
+      const tieElement = document.createElement("h3");
+      tieElement.innerHTML = `Tie! \n`;
+      gameResult.appendChild(tieElement);
       resetGameBoard();
     }
   });

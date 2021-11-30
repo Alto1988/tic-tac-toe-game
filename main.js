@@ -20,6 +20,9 @@ const gameBoard = document.querySelector(".game-board");
 const gameResult = document.querySelector("#game-result-container");
 const playerOneInput = document.querySelector('input[name="player-one"]');
 const playerTwoInput = document.querySelector('input[name="player-two"]');
+const getWinnerSoundPlayerOne = document.querySelector("#winner-sound-one");
+const getWinnerSoundPlayerTwo = document.querySelector("#winner-sound-two");
+const getTieSound = document.querySelector("#tie-sound");
 playerOneScore.innerText = gameState.playerOne.wins;
 playerTwoScore.innerText = gameState.playerTwo.wins;
 
@@ -90,9 +93,9 @@ for (let i = 0; i < 9; i++) {
         const winnerElement = document.createElement("h3");
         winnerElement.innerHTML = `Player ${gameState.playerTurn - 1} wins \n`;
         gameResult.appendChild(winnerElement);
-
         gameState.playerOne.wins++;
         playerOneScore.innerText = gameState.playerOne.wins;
+        getWinnerSoundPlayerOne.play();
         gameState.gameIsStarted = false;
       } else {
         const winnerElement = document.createElement("h3");
@@ -100,17 +103,18 @@ for (let i = 0; i < 9; i++) {
         gameResult.appendChild(winnerElement);
         gameState.playerTwo.wins++;
         playerTwoScore.innerText = gameState.playerTwo.wins;
+        getWinnerSoundPlayerTwo.play();
         gameState.gameIsStarted = false;
       }
     } else if (
       checkForWin() === false &&
       checkIfEntireBoardIsFilled() === true
     ) {
-      alert("Tie!");
+      getTieSound.play();
       const tieElement = document.createElement("h3");
       tieElement.innerHTML = `Tie! \n`;
       gameResult.appendChild(tieElement);
-      resetGameBoard();
+      // resetGameBoard();
     }
   });
   gameBoard.appendChild(box);

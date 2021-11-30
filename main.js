@@ -114,7 +114,7 @@ for (let i = 0; i < 9; i++) {
       const tieElement = document.createElement("h3");
       tieElement.innerHTML = `Tie! \n`;
       gameResult.appendChild(tieElement);
-      // resetGameBoard();
+      resetGameBoard();
     }
   });
   gameBoard.appendChild(box);

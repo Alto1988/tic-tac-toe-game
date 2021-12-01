@@ -120,6 +120,8 @@ for (let i = 0; i < 9; i++) {
   gameBoard.appendChild(box);
 }
 
+//END of EVENT LOOP
+
 //Check for the win conditions still need to figure out the logic for ties
 function checkForWin() {
   //check for horizontal win
@@ -181,6 +183,7 @@ function checkForWin() {
   return false;
 }
 
+// This checks if there is a tie or not
 function checkIfEntireBoardIsFilled() {
   for (let i = 0; i < 9; i++) {
     if (gameBoard.children[i].innerText === "") {

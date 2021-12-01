@@ -23,3 +23,15 @@ TODO:
 - First player to match three in a row wins the game.
 - Press start game again after the game is over to start a new game.
 - To start match over mid game press reset button or if you want to play another person.
+
+# Technologies used
+
+- HTML
+- CSS
+- JavaScript
+
+# Description of favorite functions and what not
+
+- My personal favorite is the event loop that creates all the divs and css for the game and handles all the game logic.
+- The other function that I found really cool is checkForWin(), that finds the winner. Checks for the winner and returns a boolean value and higlights the 3 boxes in a row.
+-

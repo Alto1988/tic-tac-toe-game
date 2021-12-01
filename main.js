@@ -87,7 +87,6 @@ for (let i = 0; i < 9; i++) {
       box.innerText = playerTwoInput.value ? playerTwoInput.value : "O";
       gameState.playerTurn = 1;
     }
-    console.log(gameState.playerTurn);
     if (checkForWin()) {
       if (gameState.playerTurn === 2) {
         const winnerElement = document.createElement("h3");

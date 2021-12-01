@@ -22,7 +22,7 @@ TODO:
 - To start the game press start game button.
 - First player to match three in a row wins the game.
 - Press start game again after the game is over to start a new game.
-- To start match over mid game press reset button or if you want to play another person.
+- To start match over mid game, or start all over again losing previous wins, press reset button. If you want to play another person press the reset button also.
 
 # Technologies used
 
@@ -34,3 +34,7 @@ TODO:
 
 - My personal favorite is the event loop that creates all the divs and css for the game and handles all the game logic.
 - The other function that I found really cool is checkForWin(), that finds the winner. Checks for the winner and returns a boolean value and higlights the 3 boxes in a row.
+
+# Link to the game
+
+- [GAME](https://alto1988.github.io/tic-tac-toe-game/)
